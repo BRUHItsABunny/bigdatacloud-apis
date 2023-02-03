@@ -2,17 +2,10 @@ package bigdatacloud_apis
 
 import (
 	bdcc "github.com/BRUHItsABunny/bigdatacloud-apis/client"
+	andutils "github.com/BRUHItsABunny/go-android-utils"
 	"net/http"
 )
 
-func NewBigDataCloudClient(client *http.Client, apiKey, userAgent string) *bdcc.BigDataCloudClient {
-	if client == nil {
-		client = http.DefaultClient
-	}
-
-	return &bdcc.BigDataCloudClient{
-		Client:    client,
-		APIKey:    apiKey,
-		UserAgent: userAgent,
-	}
+func NewBigDataCloudClient(hClient *http.Client, device *andutils.Device, apiKey string) *bdcc.BigDataCloudClient {
+	return bdcc.NewBigDataCloudClient(hClient, device, apiKey)
 }

@@ -89,4 +89,7 @@ const (
 	ParameterKeyLatitude  = "latitude"
 	ParameterKeyLanguage  = "localityLanguage"
 	ParameterKeyAPIKey    = "key"
+
+	// DefaultAPIKey from the Android app
+	DefaultAPIKey = "ea729bf8c3b144d49bcf2806feb5822b"
 )

@@ -8,5 +8,7 @@ First use the following command:
 
 Then get your API key from [here](https://www.bigdatacloud.com/) and just feed it into the `NewBigDataCloudClient()` function
 
+Refer to `lib_test.go` to see how to use the library
+
 ### TODO
 * Add the other API calls
