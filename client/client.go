@@ -124,3 +124,165 @@ func (c *BigDataCloudClient) ReverseGeocodeWithTimezone(ctx context.Context, lan
 	}
 	return result, nil
 }
+
+func (c *BigDataCloudClient) ValidatePhoneNumber(ctx context.Context, language, countryCode, phoneNumber string) (*api.PhoneValidation, error) {
+	req, err := api.ValidatePhoneNumberRequest(ctx, c.Device, c.APIKey, language, countryCode, phoneNumber)
+	if err != nil {
+		return nil, fmt.Errorf("api.ValidatePhoneNumberRequest: %w", err)
+	}
+
+	resp, err := c.Client.Do(req)
+	if err != nil {
+		return nil, fmt.Errorf("c.Client.Do: %w", err)
+	}
+
+	result, err := api.PhoneValidationParser(resp)
+	if err != nil {
+		return nil, fmt.Errorf("api.PhoneValidationParser: %w", err)
+	}
+	return result, nil
+}
+
+func (c *BigDataCloudClient) ValidatePhoneNumberByIP(ctx context.Context, language, ipAddress, phoneNumber string) (*api.PhoneValidation, error) {
+	req, err := api.ValidatePhoneNumberByIPRequest(ctx, c.Device, c.APIKey, language, ipAddress, phoneNumber)
+	if err != nil {
+		return nil, fmt.Errorf("api.ValidatePhoneNumberRequest: %w", err)
+	}
+
+	resp, err := c.Client.Do(req)
+	if err != nil {
+		return nil, fmt.Errorf("c.Client.Do: %w", err)
+	}
+
+	result, err := api.PhoneValidationParser(resp)
+	if err != nil {
+		return nil, fmt.Errorf("api.PhoneValidationParser: %w", err)
+	}
+	return result, nil
+}
+
+func (c *BigDataCloudClient) VerifyEmailAddress(ctx context.Context, language, emailAddress string) (*api.EmailVerification, error) {
+	req, err := api.VerifyEmailAddressRequest(ctx, c.Device, c.APIKey, language, emailAddress)
+	if err != nil {
+		return nil, fmt.Errorf("api.VerifyEmailAddressRequest: %w", err)
+	}
+
+	resp, err := c.Client.Do(req)
+	if err != nil {
+		return nil, fmt.Errorf("c.Client.Do: %w", err)
+	}
+
+	result, err := api.EmailVerificationParser(resp)
+	if err != nil {
+		return nil, fmt.Errorf("api.EmailVerificationParser: %w", err)
+	}
+	return result, nil
+}
+
+func (c *BigDataCloudClient) NetworkByIP(ctx context.Context, language, ipAddress string) (*api.Network, error) {
+	req, err := api.NetworkByIPRequest(ctx, c.Device, c.APIKey, language, ipAddress)
+	if err != nil {
+		return nil, fmt.Errorf("api.NetworkByIPRequest: %w", err)
+	}
+
+	resp, err := c.Client.Do(req)
+	if err != nil {
+		return nil, fmt.Errorf("c.Client.Do: %w", err)
+	}
+
+	result, err := api.NetworkParser(resp)
+	if err != nil {
+		return nil, fmt.Errorf("api.NetworkParser: %w", err)
+	}
+	return result, nil
+}
+
+func (c *BigDataCloudClient) UserRisk(ctx context.Context, language, ipAddress string) (*api.UserRisk, error) {
+	req, err := api.UserRiskRequest(ctx, c.Device, c.APIKey, language, ipAddress)
+	if err != nil {
+		return nil, fmt.Errorf("api.UserRiskRequest: %w", err)
+	}
+
+	resp, err := c.Client.Do(req)
+	if err != nil {
+		return nil, fmt.Errorf("c.Client.Do: %w", err)
+	}
+
+	result, err := api.UserRiskParser(resp)
+	if err != nil {
+		return nil, fmt.Errorf("api.UserRiskParser: %w", err)
+	}
+	return result, nil
+}
+
+func (c *BigDataCloudClient) UserAgentInfo(ctx context.Context, language, userAgent string) (*api.UserAgentInfo, error) {
+	req, err := api.UserAgentInfoRequest(ctx, c.Device, c.APIKey, language, userAgent)
+	if err != nil {
+		return nil, fmt.Errorf("api.UserAgentInfoRequest: %w", err)
+	}
+
+	resp, err := c.Client.Do(req)
+	if err != nil {
+		return nil, fmt.Errorf("c.Client.Do: %w", err)
+	}
+
+	result, err := api.UserAgentInfoParser(resp)
+	if err != nil {
+		return nil, fmt.Errorf("api.UserAgentInfoParser: %w", err)
+	}
+	return result, nil
+}
+
+func (c *BigDataCloudClient) ASNInfoFull(ctx context.Context, language, asn string, peersCap int) (*api.Carrier, error) {
+	req, err := api.ASNInfoFullRequest(ctx, c.Device, c.APIKey, language, asn, peersCap)
+	if err != nil {
+		return nil, fmt.Errorf("api.ASNInfoFullRequest: %w", err)
+	}
+
+	resp, err := c.Client.Do(req)
+	if err != nil {
+		return nil, fmt.Errorf("c.Client.Do: %w", err)
+	}
+
+	result, err := api.CarrierParser(resp)
+	if err != nil {
+		return nil, fmt.Errorf("api.CarrierParser: %w", err)
+	}
+	return result, nil
+}
+
+func (c *BigDataCloudClient) IPStatsPerCountry(ctx context.Context, language string) (*api.IPStatsPerCountry, error) {
+	req, err := api.IPStatsPerCountryRequest(ctx, c.Device, c.APIKey, language)
+	if err != nil {
+		return nil, fmt.Errorf("api.IPStatsPerCountryRequest: %w", err)
+	}
+
+	resp, err := c.Client.Do(req)
+	if err != nil {
+		return nil, fmt.Errorf("c.Client.Do: %w", err)
+	}
+
+	result, err := api.IPStatsPerCountryParser(resp)
+	if err != nil {
+		return nil, fmt.Errorf("api.UserAgentInfoParser: %w", err)
+	}
+	return result, nil
+}
+
+func (c *BigDataCloudClient) SubmitLocation(ctx context.Context, language, uuid string, latitude, longitude, accuracy float64, isVPN, isCell, isRoaming, isProxy bool) error {
+	req, err := api.SubmitLocationRequest(ctx, c.Device, c.APIKey, language, uuid, latitude, longitude, accuracy, isVPN, isCell, isRoaming, isProxy)
+	if err != nil {
+		return fmt.Errorf("api.SubmitLocationRequest: %w", err)
+	}
+
+	resp, err := c.Client.Do(req)
+	if err != nil {
+		return fmt.Errorf("c.Client.Do: %w", err)
+	}
+
+	err = api.SubmitResultParser(resp)
+	if err != nil {
+		return fmt.Errorf("api.SubmitResultParser: %w", err)
+	}
+	return nil
+}

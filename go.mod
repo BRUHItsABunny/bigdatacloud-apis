@@ -6,6 +6,7 @@ require (
 	github.com/BRUHItsABunny/gOkHttp v0.2.4
 	github.com/BRUHItsABunny/go-android-utils v0.0.27
 	github.com/davecgh/go-spew v1.1.1
+	github.com/google/uuid v1.3.0
 	github.com/joho/godotenv v1.4.0
 )
 

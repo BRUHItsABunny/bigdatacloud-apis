@@ -82,14 +82,25 @@ const (
 	// EndpointEmailVerify https://www.bigdatacloud.com/email-address-validation-apis/email-verify-api
 	EndpointEmailVerify = endpointData + "/email-verify"
 
-	DefaultUserAgent      = "github.com/BRUHItsABunny/bigdatacloud-apis"
-	HeaderKeyUserAgent    = "user-agent"
-	ParameterKeyIP        = "ip"
-	ParameterKeyLongitude = "longitude"
-	ParameterKeyLatitude  = "latitude"
-	ParameterKeyLanguage  = "localityLanguage"
-	ParameterKeyAPIKey    = "key"
+	// EndpointUserRisk https://www.bigdatacloud.com/docs/api/user-risk-api
+	EndpointUserRisk = endpointData + "/user-risk"
 
+	// Undocumented endpoints used by their Android app
+	EndpointIPGeoPerCountry = endpointData + "/ip-geolocation-per-country"
+	EndpointSubmitLocation  = endpointData + "/submit-location"
+
+	DefaultUserAgent         = "github.com/BRUHItsABunny/bigdatacloud-apis"
+	ParameterKeyIP           = "ip"
+	ParameterKeyLongitude    = "longitude"
+	ParameterKeyLatitude     = "latitude"
+	ParameterKeyLanguage     = "localityLanguage"
+	ParameterKeyAPIKey       = "key"
+	ParameterKeyCountryCode  = "countryCode"
+	ParameterKeyNumber       = "number"
+	ParameterKeyEmailAddress = "emailAddress"
+	ParameterKeyUserAgent    = "userAgentRaw"
+	ParameterKeyASN          = "asn"
+	ParameterKeyPeersCap     = "peersCap"
 	// DefaultAPIKey from the Android app
 	DefaultAPIKey = "ea729bf8c3b144d49bcf2806feb5822b"
 )
