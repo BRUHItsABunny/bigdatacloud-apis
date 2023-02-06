@@ -46,9 +46,9 @@ func (c *BigDataCloudClient) IPGeolocationFull(ctx context.Context, language, ip
 		return nil, fmt.Errorf("c.Client.Do: %w", err)
 	}
 
-	result, err := api.IPGeolocationParser(resp)
+	result, err := api.ObjectParser(api.IPGeolocation{}, resp)
 	if err != nil {
-		return nil, fmt.Errorf("api.IPGeolocationParser: %w", err)
+		return nil, fmt.Errorf("api.ObjectParser: %w", err)
 	}
 	return result, nil
 }
@@ -64,9 +64,9 @@ func (c *BigDataCloudClient) IPGeolocation(ctx context.Context, language, ip str
 		return nil, fmt.Errorf("c.Client.Do: %w", err)
 	}
 
-	result, err := api.IPGeolocationParser(resp)
+	result, err := api.ObjectParser(api.IPGeolocation{}, resp)
 	if err != nil {
-		return nil, fmt.Errorf("api.IPGeolocationParser: %w", err)
+		return nil, fmt.Errorf("api.ObjectParser: %w", err)
 	}
 	return result, nil
 }
@@ -82,9 +82,9 @@ func (c *BigDataCloudClient) IPGeolocationWithConfidence(ctx context.Context, la
 		return nil, fmt.Errorf("c.Client.Do: %w", err)
 	}
 
-	result, err := api.IPGeolocationParser(resp)
+	result, err := api.ObjectParser(api.IPGeolocation{}, resp)
 	if err != nil {
-		return nil, fmt.Errorf("api.IPGeolocationParser: %w", err)
+		return nil, fmt.Errorf("api.ObjectParser: %w", err)
 	}
 	return result, nil
 }
@@ -100,9 +100,9 @@ func (c *BigDataCloudClient) ReverseGeocode(ctx context.Context, language string
 		return nil, fmt.Errorf("c.Client.Do: %w", err)
 	}
 
-	result, err := api.ReverseGeolocationParser(resp)
+	result, err := api.ObjectParser(api.ReverseGeolocation{}, resp)
 	if err != nil {
-		return nil, fmt.Errorf("api.ReverseGeolocationParser: %w", err)
+		return nil, fmt.Errorf("api.ObjectParser: %w", err)
 	}
 	return result, nil
 }
@@ -118,9 +118,9 @@ func (c *BigDataCloudClient) ReverseGeocodeWithTimezone(ctx context.Context, lan
 		return nil, fmt.Errorf("c.Client.Do: %w", err)
 	}
 
-	result, err := api.ReverseGeolocationParser(resp)
+	result, err := api.ObjectParser(api.ReverseGeolocation{}, resp)
 	if err != nil {
-		return nil, fmt.Errorf("api.ReverseGeolocationParser: %w", err)
+		return nil, fmt.Errorf("api.ObjectParser: %w", err)
 	}
 	return result, nil
 }
@@ -136,9 +136,9 @@ func (c *BigDataCloudClient) ValidatePhoneNumber(ctx context.Context, language, 
 		return nil, fmt.Errorf("c.Client.Do: %w", err)
 	}
 
-	result, err := api.PhoneValidationParser(resp)
+	result, err := api.ObjectParser(api.PhoneValidation{}, resp)
 	if err != nil {
-		return nil, fmt.Errorf("api.PhoneValidationParser: %w", err)
+		return nil, fmt.Errorf("api.ObjectParser: %w", err)
 	}
 	return result, nil
 }
@@ -154,9 +154,9 @@ func (c *BigDataCloudClient) ValidatePhoneNumberByIP(ctx context.Context, langua
 		return nil, fmt.Errorf("c.Client.Do: %w", err)
 	}
 
-	result, err := api.PhoneValidationParser(resp)
+	result, err := api.ObjectParser(api.PhoneValidation{}, resp)
 	if err != nil {
-		return nil, fmt.Errorf("api.PhoneValidationParser: %w", err)
+		return nil, fmt.Errorf("api.ObjectParser: %w", err)
 	}
 	return result, nil
 }
@@ -172,9 +172,9 @@ func (c *BigDataCloudClient) VerifyEmailAddress(ctx context.Context, language, e
 		return nil, fmt.Errorf("c.Client.Do: %w", err)
 	}
 
-	result, err := api.EmailVerificationParser(resp)
+	result, err := api.ObjectParser(api.EmailVerification{}, resp)
 	if err != nil {
-		return nil, fmt.Errorf("api.EmailVerificationParser: %w", err)
+		return nil, fmt.Errorf("api.ObjectParser: %w", err)
 	}
 	return result, nil
 }
@@ -190,9 +190,9 @@ func (c *BigDataCloudClient) NetworkByIP(ctx context.Context, language, ipAddres
 		return nil, fmt.Errorf("c.Client.Do: %w", err)
 	}
 
-	result, err := api.NetworkParser(resp)
+	result, err := api.ObjectParser(api.Network{}, resp)
 	if err != nil {
-		return nil, fmt.Errorf("api.NetworkParser: %w", err)
+		return nil, fmt.Errorf("api.ObjectParser: %w", err)
 	}
 	return result, nil
 }
@@ -208,9 +208,9 @@ func (c *BigDataCloudClient) UserRisk(ctx context.Context, language, ipAddress s
 		return nil, fmt.Errorf("c.Client.Do: %w", err)
 	}
 
-	result, err := api.UserRiskParser(resp)
+	result, err := api.ObjectParser(api.UserRisk{}, resp)
 	if err != nil {
-		return nil, fmt.Errorf("api.UserRiskParser: %w", err)
+		return nil, fmt.Errorf("api.ObjectParser: %w", err)
 	}
 	return result, nil
 }
@@ -226,9 +226,9 @@ func (c *BigDataCloudClient) UserAgentInfo(ctx context.Context, language, userAg
 		return nil, fmt.Errorf("c.Client.Do: %w", err)
 	}
 
-	result, err := api.UserAgentInfoParser(resp)
+	result, err := api.ObjectParser(api.UserAgentInfo{}, resp)
 	if err != nil {
-		return nil, fmt.Errorf("api.UserAgentInfoParser: %w", err)
+		return nil, fmt.Errorf("api.ObjectParser: %w", err)
 	}
 	return result, nil
 }
@@ -244,9 +244,9 @@ func (c *BigDataCloudClient) ASNInfoFull(ctx context.Context, language, asn stri
 		return nil, fmt.Errorf("c.Client.Do: %w", err)
 	}
 
-	result, err := api.CarrierParser(resp)
+	result, err := api.ObjectParser(api.Carrier{}, resp)
 	if err != nil {
-		return nil, fmt.Errorf("api.CarrierParser: %w", err)
+		return nil, fmt.Errorf("api.ObjectParser: %w", err)
 	}
 	return result, nil
 }
@@ -262,9 +262,9 @@ func (c *BigDataCloudClient) IPStatsPerCountry(ctx context.Context, language str
 		return nil, fmt.Errorf("c.Client.Do: %w", err)
 	}
 
-	result, err := api.IPStatsPerCountryParser(resp)
+	result, err := api.ObjectParser(api.IPStatsPerCountry{}, resp)
 	if err != nil {
-		return nil, fmt.Errorf("api.UserAgentInfoParser: %w", err)
+		return nil, fmt.Errorf("api.ObjectParser: %w", err)
 	}
 	return result, nil
 }
