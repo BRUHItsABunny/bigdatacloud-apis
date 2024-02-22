@@ -8,36 +8,36 @@ import (
 
 func ErrorParser(resp *http.Response, fallbackErr error) error {
 	errRsp := new(ErrorResponse)
-	err := responses.ResponseJSON(resp, errRsp)
+	err := gokhttp_responses.ResponseJSON(resp, errRsp)
 	if err != nil {
-		return fmt.Errorf("responses.CheckHTTPCode: %w", fallbackErr)
+		return fmt.Errorf("gokhttp_responses.CheckHTTPCode: %w", fallbackErr)
 	}
 	return errRsp
 }
 
 func SubmitResultParser(resp *http.Response) error {
-	err := responses.CheckHTTPCode(resp, 200)
+	err := gokhttp_responses.CheckHTTPCode(resp, 200)
 	if err != nil {
 		return ErrorParser(resp, err)
 	}
 
-	_, err = responses.ResponseBytes(resp)
+	_, err = gokhttp_responses.ResponseBytes(resp)
 	if err != nil {
-		return fmt.Errorf("responses.ResponseJSON: %w", err)
+		return fmt.Errorf("gokhttp_responses.ResponseJSON: %w", err)
 	}
 	return nil
 }
 
 func ObjectParser[T any](obj T, resp *http.Response) (*T, error) {
 	result := new(T)
-	err := responses.CheckHTTPCode(resp, 200)
+	err := gokhttp_responses.CheckHTTPCode(resp, 200)
 	if err != nil {
 		return nil, ErrorParser(resp, err)
 	}
 
-	err = responses.ResponseJSON(resp, result)
+	err = gokhttp_responses.ResponseJSON(resp, result)
 	if err != nil {
-		return nil, fmt.Errorf("responses.ResponseJSON: %w", err)
+		return nil, fmt.Errorf("gokhttp_responses.ResponseJSON: %w", err)
 	}
 	return result, nil
 }

@@ -15,12 +15,12 @@ func IPGeolocationFullRequest(ctx context.Context, device *andutils.Device, apiK
 	parameters := DefaultParameters(apiKey, language)
 	parameters[constants.ParameterKeyIP] = []string{ip}
 
-	req, err := requests.MakeGETRequest(ctx, constants.EndpointIPGeolocationFull,
-		requests.NewHeaderOption(DefaultHeaders(device)),
-		requests.NewURLParamOption(parameters),
+	req, err := gokhttp_requests.MakeGETRequest(ctx, constants.EndpointIPGeolocationFull,
+		gokhttp_requests.NewHeaderOption(DefaultHeaders(device)),
+		gokhttp_requests.NewURLParamOption(parameters),
 	)
 	if err != nil {
-		return nil, fmt.Errorf("requests.MakeGETRequest: %w", err)
+		return nil, fmt.Errorf("gokhttp_requests.MakeGETRequest: %w", err)
 	}
 	return req, nil
 }
@@ -29,12 +29,12 @@ func IPGeolocationRequest(ctx context.Context, device *andutils.Device, apiKey, 
 	parameters := DefaultParameters(apiKey, language)
 	parameters[constants.ParameterKeyIP] = []string{ip}
 
-	req, err := requests.MakeGETRequest(ctx, constants.EndpointIPGeolocation,
-		requests.NewHeaderOption(DefaultHeaders(device)),
-		requests.NewURLParamOption(parameters),
+	req, err := gokhttp_requests.MakeGETRequest(ctx, constants.EndpointIPGeolocation,
+		gokhttp_requests.NewHeaderOption(DefaultHeaders(device)),
+		gokhttp_requests.NewURLParamOption(parameters),
 	)
 	if err != nil {
-		return nil, fmt.Errorf("requests.MakeGETRequest: %w", err)
+		return nil, fmt.Errorf("gokhttp_requests.MakeGETRequest: %w", err)
 	}
 	return req, nil
 }
@@ -43,12 +43,12 @@ func IPGeolocationWithConfidenceRequest(ctx context.Context, device *andutils.De
 	parameters := DefaultParameters(apiKey, language)
 	parameters[constants.ParameterKeyIP] = []string{ip}
 
-	req, err := requests.MakeGETRequest(ctx, constants.EndpointIPGeolocationWithConfidence,
-		requests.NewHeaderOption(DefaultHeaders(device)),
-		requests.NewURLParamOption(parameters),
+	req, err := gokhttp_requests.MakeGETRequest(ctx, constants.EndpointIPGeolocationWithConfidence,
+		gokhttp_requests.NewHeaderOption(DefaultHeaders(device)),
+		gokhttp_requests.NewURLParamOption(parameters),
 	)
 	if err != nil {
-		return nil, fmt.Errorf("requests.MakeGETRequest: %w", err)
+		return nil, fmt.Errorf("gokhttp_requests.MakeGETRequest: %w", err)
 	}
 	return req, nil
 }
@@ -58,12 +58,12 @@ func ReverseGeocodeRequest(ctx context.Context, device *andutils.Device, apiKey,
 	parameters[constants.ParameterKeyLatitude] = []string{strconv.FormatFloat(latitude, 'f', -1, 64)}
 	parameters[constants.ParameterKeyLongitude] = []string{strconv.FormatFloat(longitude, 'f', -1, 64)}
 
-	req, err := requests.MakeGETRequest(ctx, constants.EndpointReverseGeocode,
-		requests.NewHeaderOption(DefaultHeaders(device)),
-		requests.NewURLParamOption(parameters),
+	req, err := gokhttp_requests.MakeGETRequest(ctx, constants.EndpointReverseGeocode,
+		gokhttp_requests.NewHeaderOption(DefaultHeaders(device)),
+		gokhttp_requests.NewURLParamOption(parameters),
 	)
 	if err != nil {
-		return nil, fmt.Errorf("requests.MakeGETRequest: %w", err)
+		return nil, fmt.Errorf("gokhttp_requests.MakeGETRequest: %w", err)
 	}
 	return req, nil
 }
@@ -73,12 +73,12 @@ func ReverseGeocodeWithTimezoneRequest(ctx context.Context, device *andutils.Dev
 	parameters[constants.ParameterKeyLatitude] = []string{strconv.FormatFloat(latitude, 'f', -1, 64)}
 	parameters[constants.ParameterKeyLongitude] = []string{strconv.FormatFloat(longitude, 'f', -1, 64)}
 
-	req, err := requests.MakeGETRequest(ctx, constants.EndpointReverseGeocodeWithTimezone,
-		requests.NewHeaderOption(DefaultHeaders(device)),
-		requests.NewURLParamOption(parameters),
+	req, err := gokhttp_requests.MakeGETRequest(ctx, constants.EndpointReverseGeocodeWithTimezone,
+		gokhttp_requests.NewHeaderOption(DefaultHeaders(device)),
+		gokhttp_requests.NewURLParamOption(parameters),
 	)
 	if err != nil {
-		return nil, fmt.Errorf("requests.MakeGETRequest: %w", err)
+		return nil, fmt.Errorf("gokhttp_requests.MakeGETRequest: %w", err)
 	}
 	return req, nil
 }
@@ -88,12 +88,12 @@ func ValidatePhoneNumberRequest(ctx context.Context, device *andutils.Device, ap
 	parameters[constants.ParameterKeyCountryCode] = []string{countryCode}
 	parameters[constants.ParameterKeyNumber] = []string{phoneNumber}
 
-	req, err := requests.MakeGETRequest(ctx, constants.EndpointPhoneNumberValidate,
-		requests.NewHeaderOption(DefaultHeaders(device)),
-		requests.NewURLParamOption(parameters),
+	req, err := gokhttp_requests.MakeGETRequest(ctx, constants.EndpointPhoneNumberValidate,
+		gokhttp_requests.NewHeaderOption(DefaultHeaders(device)),
+		gokhttp_requests.NewURLParamOption(parameters),
 	)
 	if err != nil {
-		return nil, fmt.Errorf("requests.MakeGETRequest: %w", err)
+		return nil, fmt.Errorf("gokhttp_requests.MakeGETRequest: %w", err)
 	}
 	return req, nil
 }
@@ -103,12 +103,12 @@ func ValidatePhoneNumberByIPRequest(ctx context.Context, device *andutils.Device
 	parameters[constants.ParameterKeyIP] = []string{ipAddress}
 	parameters[constants.ParameterKeyNumber] = []string{phoneNumber}
 
-	req, err := requests.MakeGETRequest(ctx, constants.EndpointPhoneNumberValidateByIP,
-		requests.NewHeaderOption(DefaultHeaders(device)),
-		requests.NewURLParamOption(parameters),
+	req, err := gokhttp_requests.MakeGETRequest(ctx, constants.EndpointPhoneNumberValidateByIP,
+		gokhttp_requests.NewHeaderOption(DefaultHeaders(device)),
+		gokhttp_requests.NewURLParamOption(parameters),
 	)
 	if err != nil {
-		return nil, fmt.Errorf("requests.MakeGETRequest: %w", err)
+		return nil, fmt.Errorf("gokhttp_requests.MakeGETRequest: %w", err)
 	}
 	return req, nil
 }
@@ -117,12 +117,12 @@ func VerifyEmailAddressRequest(ctx context.Context, device *andutils.Device, api
 	parameters := DefaultParameters(apiKey, language)
 	parameters[constants.ParameterKeyEmailAddress] = []string{emailAddress}
 
-	req, err := requests.MakeGETRequest(ctx, constants.EndpointEmailVerify,
-		requests.NewHeaderOption(DefaultHeaders(device)),
-		requests.NewURLParamOption(parameters),
+	req, err := gokhttp_requests.MakeGETRequest(ctx, constants.EndpointEmailVerify,
+		gokhttp_requests.NewHeaderOption(DefaultHeaders(device)),
+		gokhttp_requests.NewURLParamOption(parameters),
 	)
 	if err != nil {
-		return nil, fmt.Errorf("requests.MakeGETRequest: %w", err)
+		return nil, fmt.Errorf("gokhttp_requests.MakeGETRequest: %w", err)
 	}
 	return req, nil
 }
@@ -131,12 +131,12 @@ func NetworkByIPRequest(ctx context.Context, device *andutils.Device, apiKey, la
 	parameters := DefaultParameters(apiKey, language)
 	parameters[constants.ParameterKeyIP] = []string{ipAddress}
 
-	req, err := requests.MakeGETRequest(ctx, constants.EndpointNetworkByIP,
-		requests.NewHeaderOption(DefaultHeaders(device)),
-		requests.NewURLParamOption(parameters),
+	req, err := gokhttp_requests.MakeGETRequest(ctx, constants.EndpointNetworkByIP,
+		gokhttp_requests.NewHeaderOption(DefaultHeaders(device)),
+		gokhttp_requests.NewURLParamOption(parameters),
 	)
 	if err != nil {
-		return nil, fmt.Errorf("requests.MakeGETRequest: %w", err)
+		return nil, fmt.Errorf("gokhttp_requests.MakeGETRequest: %w", err)
 	}
 	return req, nil
 }
@@ -145,12 +145,12 @@ func UserRiskRequest(ctx context.Context, device *andutils.Device, apiKey, langu
 	parameters := DefaultParameters(apiKey, language)
 	parameters[constants.ParameterKeyIP] = []string{ipAddress}
 
-	req, err := requests.MakeGETRequest(ctx, constants.EndpointUserRisk,
-		requests.NewHeaderOption(DefaultHeaders(device)),
-		requests.NewURLParamOption(parameters),
+	req, err := gokhttp_requests.MakeGETRequest(ctx, constants.EndpointUserRisk,
+		gokhttp_requests.NewHeaderOption(DefaultHeaders(device)),
+		gokhttp_requests.NewURLParamOption(parameters),
 	)
 	if err != nil {
-		return nil, fmt.Errorf("requests.MakeGETRequest: %w", err)
+		return nil, fmt.Errorf("gokhttp_requests.MakeGETRequest: %w", err)
 	}
 	return req, nil
 }
@@ -159,12 +159,12 @@ func UserAgentInfoRequest(ctx context.Context, device *andutils.Device, apiKey, 
 	parameters := DefaultParameters(apiKey, language)
 	parameters[constants.ParameterKeyUserAgent] = []string{userAgent}
 
-	req, err := requests.MakeGETRequest(ctx, constants.EndpointUserAgentInfo,
-		requests.NewHeaderOption(DefaultHeaders(device)),
-		requests.NewURLParamOption(parameters),
+	req, err := gokhttp_requests.MakeGETRequest(ctx, constants.EndpointUserAgentInfo,
+		gokhttp_requests.NewHeaderOption(DefaultHeaders(device)),
+		gokhttp_requests.NewURLParamOption(parameters),
 	)
 	if err != nil {
-		return nil, fmt.Errorf("requests.MakeGETRequest: %w", err)
+		return nil, fmt.Errorf("gokhttp_requests.MakeGETRequest: %w", err)
 	}
 	return req, nil
 }
@@ -174,12 +174,12 @@ func ASNInfoFullRequest(ctx context.Context, device *andutils.Device, apiKey, la
 	parameters[constants.ParameterKeyASN] = []string{asn}
 	parameters[constants.ParameterKeyPeersCap] = []string{strconv.FormatInt(int64(peersCap), 10)}
 
-	req, err := requests.MakeGETRequest(ctx, constants.EndpointASNInfoFull,
-		requests.NewHeaderOption(DefaultHeaders(device)),
-		requests.NewURLParamOption(parameters),
+	req, err := gokhttp_requests.MakeGETRequest(ctx, constants.EndpointASNInfoFull,
+		gokhttp_requests.NewHeaderOption(DefaultHeaders(device)),
+		gokhttp_requests.NewURLParamOption(parameters),
 	)
 	if err != nil {
-		return nil, fmt.Errorf("requests.MakeGETRequest: %w", err)
+		return nil, fmt.Errorf("gokhttp_requests.MakeGETRequest: %w", err)
 	}
 	return req, nil
 }
@@ -187,12 +187,12 @@ func ASNInfoFullRequest(ctx context.Context, device *andutils.Device, apiKey, la
 func IPStatsPerCountryRequest(ctx context.Context, device *andutils.Device, apiKey, language string) (*http.Request, error) {
 	parameters := DefaultParameters(apiKey, language)
 
-	req, err := requests.MakeGETRequest(ctx, constants.EndpointIPGeoPerCountry,
-		requests.NewHeaderOption(DefaultHeaders(device)),
-		requests.NewURLParamOption(parameters),
+	req, err := gokhttp_requests.MakeGETRequest(ctx, constants.EndpointIPGeoPerCountry,
+		gokhttp_requests.NewHeaderOption(DefaultHeaders(device)),
+		gokhttp_requests.NewURLParamOption(parameters),
 	)
 	if err != nil {
-		return nil, fmt.Errorf("requests.MakeGETRequest: %w", err)
+		return nil, fmt.Errorf("gokhttp_requests.MakeGETRequest: %w", err)
 	}
 	return req, nil
 }
@@ -210,13 +210,13 @@ func SubmitLocationRequest(ctx context.Context, device *andutils.Device, apiKey,
 		"isProxy":   {strconv.FormatBool(isProxy)},
 	}
 
-	req, err := requests.MakePOSTRequest(ctx, constants.EndpointSubmitLocation,
-		requests.NewPOSTFormOption(postForm),
-		requests.NewHeaderOption(DefaultHeaders(device)),
-		requests.NewURLParamOption(parameters),
+	req, err := gokhttp_requests.MakePOSTRequest(ctx, constants.EndpointSubmitLocation,
+		gokhttp_requests.NewPOSTFormOption(postForm),
+		gokhttp_requests.NewHeaderOption(DefaultHeaders(device)),
+		gokhttp_requests.NewURLParamOption(parameters),
 	)
 	if err != nil {
-		return nil, fmt.Errorf("requests.MakePOSTRequest: %w", err)
+		return nil, fmt.Errorf("gokhttp_requests.MakePOSTRequest: %w", err)
 	}
 	return req, nil
 }
